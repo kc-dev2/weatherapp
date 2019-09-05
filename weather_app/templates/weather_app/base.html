@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <!-- <link rel="stylesheet" href="test.css" type = "text/css"/> -->
+    <style>
+    .hero-body {
+      padding: 10px 0 10px;
+    }
+    </style>
+    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title" align="center">
+                    What's the weather like?
+                </h1>
+                <p style="font-size:15px" align="center">
+                  <a href="https://darksky.net/dev" rel="license" target="_blank">Powered by DarkSky</a> &#8226;
+                  <a href="https://docs.mapbox.com/api/" rel="license" target="_blank">Geocoding by MapBox</a><br>
+                  <a href="https://github.com/kc693" rel="author" target="_blank">Developed by ME</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <br>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <div class="box">
+                              <p>
+                                {% block info %}{% endblock %}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+</body>
+</html>

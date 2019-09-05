@@ -1,0 +1,24 @@
+{% extends "weather_app/base.html" %}
+
+{% block info %}
+<b>Let's get started!</b><br><br>
+<form action="results/" method="POST">
+  {% csrf_token %}
+  Type a location:
+  <input type="text" name='kyle' required></input>
+  <p>
+   <label>Select which day</label>
+   <select id = "myList" name = "date">
+     <option value = "0">Today</option>
+     <option value = "1">Tomorrow</option>
+     <option value = "2">2 days from now</option>
+     <option value = "3">3 days from now</option>
+     <option value = "4">4 days from now</option>
+     <option value = "5">5 days from now</option>
+     <option value = "6">6 days from now</option>
+     <option value = "7">A week from now</option>
+   </select>
+  </p>
+<input type="submit" value="Show me the weather!">
+</form>
+{% endblock info %}

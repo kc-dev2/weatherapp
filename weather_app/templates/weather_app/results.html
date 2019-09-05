@@ -1,0 +1,96 @@
+{% extends "weather_app/base.html" %}
+
+<!-- {% block cute_icon %}
+<canvas id="weather-icon" width="50" height="50"></canvas>
+  <script>
+    var icons = new Skycons({"color": "orange"});
+    const cond = "{{currently.icon}}";
+    icons.set("weather-icon", cond);
+    icons.play();
+  </script>
+{% endblock cute_icon %} -->
+
+{% block info %}
+{% if days_ahead == 0 %}
+<div class="box">
+  <canvas id="weather-icon" width="50" height="50"></canvas>
+    <script>
+      var icons = new Skycons({"color": "orange"});
+      const cond = "{{currently.icon}}";
+      icons.set("weather-icon", cond);
+      icons.play();
+    </script>
+
+  <div class="media-content">
+    <div class="content">
+
+      <h3>{{ map_data.place_name }}</h3>
+      <h5> Weather for: {{ day }}</h5>
+      <!-- <h1>{{ test }}</h1> -->
+
+        <b>Currently: {{ currently.summary }}</b><br>
+        <i>{{ hourly.summary }}</i>
+        <ul>
+          <li> Temperature: {{currently.temperature}}&#8451;
+          <li> Feels like: {{currently.feels_like}}&#8451;
+          <li> Precipitation: {{currently.precipInt}}
+        </ul>
+    </div>
+  </div>
+<div
+
+{% endif %}
+
+
+
+{% if days_ahead != 0 %}
+<div class="box">
+  <canvas id="weather-icon" width="50" height="50"></canvas>
+    <script>
+      var icons = new Skycons({"color": "orange"});
+      const cond = "{{daily.icon}}";
+      icons.set("weather-icon", cond);
+      icons.play();
+    </script>
+
+  <div class="media-content">
+    <div class="content">
+
+      <h3>{{ map_data.place_name }}</h3>
+      <h5> Weather for: {{ day }}</h5>
+
+        <b>Predicted: {{ daily.summary }}</b><br>
+        <ul>
+          <li> High: {{daily.temperature_high}}&#8451;
+          <li> Low: {{daily.temperature_low}}&#8451;
+          <li> Precipitation: {{daily.precipInt}}
+        </ul>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+  <br><br>
+  <b> Try a different location! </b>
+  <p>
+    <form action="" method="POST">
+      {% csrf_token %}
+      Type a location:
+      <input type="text" name='kyle'></input>
+      <p>
+         <label>Select which day: </label>
+         <select id = "myList" name = "date">
+           <option value = "0">Today</option>
+           <option value = "1">Tomorrow</option>
+           <option value = "2">2 days from now</option>
+           <option value = "3">3 days from now</option>
+           <option value = "4">4 days from now</option>
+           <option value = "5">5 days from now</option>
+           <option value = "6">6 days from now</option>
+           <option value = "7">A week from now</option>
+         </select>
+      </p>
+   <input type="submit" value="~Take me away~">
+</form>
+
+{% endblock info %}
